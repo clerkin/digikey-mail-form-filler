@@ -3,7 +3,7 @@ import io
 import numpy as np
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
-from reportlab.lib.colors import pink
+from reportlab.lib.colors import pink, skyblue
 
 # DK form, table bot left corner x=28pt y=77, row height = 16.5
 # bottom left corner of quantity: x=40.5
@@ -19,9 +19,18 @@ y_len_points = 11 * inch
 #grid_x_list = (np.linspace(0, x_len, ((x_len/grid_size) + 1))*inch).tolist()
 #grid_y_list = (np.linspace(0, y_len, ((y_len/grid_size) + 1))*inch).tolist()
 
-grid_x_list = np.arange(0, x_len_points, 10).tolist()
-grid_y_list = np.arange(0, y_len_points, 10).tolist()
+grid_x = np.arange(0, x_len_points, 10)
+grid_y = np.arange(0, y_len_points, 10)
+
+grid_x_list = grid_x.tolist()
+grid_y_list = grid_y.tolist()
 #print(grid_y_list)
+
+grid_x_minor = np.arange(0, x_len_points, 1)
+grid_x_minor  = np.delete(grid_x_minor, np.arange(0, grid_x_minor.size, 10)).tolist()
+
+grid_y_minor = np.arange(0, y_len_points, 1)
+grid_y_minor  = np.delete(grid_y_minor, np.arange(0, grid_y_minor.size, 10)).tolist()
 
 # creates ann overlay using Reportlab
 # instantiate byte object buffer
@@ -29,8 +38,12 @@ buffer = io.BytesIO()
 overlay = canvas.Canvas(buffer, pagesize=letter)
 #can.drawString(200, 200, "Hello world")
 #can.translate(40.5+287, 77)
+overlay.setLineWidth(0.125)
+overlay.setStrokeColor(skyblue)
+overlay.grid(grid_x_minor, grid_y_minor)
 overlay.setStrokeColor(pink)
 overlay.grid(grid_x_list, grid_y_list)
+
 overlay.save()
 
 # move to the beginning of the ByteIO buffer
@@ -51,6 +64,6 @@ original_page.mergePage(overlay_page)
 output_pdf_writer.addPage(original_page)
 
 # write output writer object to actual file
-output_stream = open("test_output.pdf", "wb")
+output_stream = open("dimensioning_output_small.pdf", "wb")
 output_pdf_writer.write(output_stream)
 output_stream.close()
