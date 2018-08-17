@@ -1,2 +1,9 @@
+# Ignore PDFs (except the order form)
+*.pdf
+!order-form.pdf
+
 # Virtual Environment
 venv/
+
+# Windows Dev Env Files
+pylint.bat
