@@ -16,9 +16,6 @@ grid_size = 0.125
 x_len_points = 8.5 * inch
 y_len_points = 11 * inch
 
-#grid_x_list = (np.linspace(0, x_len, ((x_len/grid_size) + 1))*inch).tolist()
-#grid_y_list = (np.linspace(0, y_len, ((y_len/grid_size) + 1))*inch).tolist()
-
 grid_x = np.arange(0, x_len_points, 10)
 grid_y = np.arange(0, y_len_points, 10)
 
@@ -26,23 +23,30 @@ grid_x_list = grid_x.tolist()
 grid_y_list = grid_y.tolist()
 #print(grid_y_list)
 
-grid_x_minor = np.arange(0, x_len_points, 1)
+grid_x_minor = np.arange(0, x_len_points, 2)
 grid_x_minor  = np.delete(grid_x_minor, np.arange(0, grid_x_minor.size, 10)).tolist()
 
-grid_y_minor = np.arange(0, y_len_points, 1)
+grid_y_minor = np.arange(0, y_len_points, 2)
 grid_y_minor  = np.delete(grid_y_minor, np.arange(0, grid_y_minor.size, 10)).tolist()
 
 # creates ann overlay using Reportlab
 # instantiate byte object buffer
 buffer = io.BytesIO()
 overlay = canvas.Canvas(buffer, pagesize=letter)
-#can.drawString(200, 200, "Hello world")
-#can.translate(40.5+287, 77)
 overlay.setLineWidth(0.125)
 overlay.setStrokeColor(skyblue)
 overlay.grid(grid_x_minor, grid_y_minor)
 overlay.setStrokeColor(pink)
 overlay.grid(grid_x_list, grid_y_list)
+overlay.setFont("Helvetica", 5)
+
+for y in grid_y_list:
+    overlay.drawString(0, (y-2), str(y))
+    overlay.drawCentredString(545, (y-2), str(y))
+
+for x in grid_x_list:
+    overlay.drawString((x-3), 0, str(int(x)))
+    overlay.drawString((x-3), 715, str(int(x)))
 
 overlay.save()
 

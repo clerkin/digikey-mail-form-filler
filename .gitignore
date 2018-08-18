@@ -1,9 +1,10 @@
 # Ignore PDFs (except the order form)
 *.pdf
 !order-form.pdf
+!dimensioning_output_small.pdf
 
 # Virtual Environment
 venv/
-
+s
 # Windows Dev Env Files
 pylint.bat
