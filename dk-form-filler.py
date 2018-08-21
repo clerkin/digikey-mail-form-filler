@@ -35,18 +35,58 @@ buffer = io.BytesIO()
 overlay = canvas.Canvas(buffer, pagesize=letter)
 overlay.setLineWidth(0.125)
 overlay.setStrokeColor(skyblue)
-overlay.grid(grid_x_minor, grid_y_minor)
+#overlay.grid(grid_x_minor, grid_y_minor)
+#overlay.setStrokeColor(pink)
+#overlay.grid(grid_x_list, grid_y_list)
+
+
+#for y in grid_y_list:
+#    overlay.drawString(0, (y-2), str(y))
+#    overlay.drawCentredString(545, (y-2), str(y))
+#
+#for x in grid_x_list:
+#    overlay.drawString((x-3), 0, str(int(x)))
+#    overlay.drawString((x-3), 715, str(int(x)))
+
+with open("item-table.json", "r") as input_file:
+    item_table = json.load(input_file)["table"]
+    #pp(input)
+    for row in item_table:
+        for col, cell in row.iteritems():
+            x1 = cell["bounding_box"]["x1"]
+            y1 = cell["bounding_box"]["y1"]
+            x2 = cell["bounding_box"]["x2"]
+            y2 = cell["bounding_box"]["y2"]
+            #overlay.translate(x1,y1)
+            overlay.grid([x1, x2], [y1, y2])
+
 overlay.setStrokeColor(pink)
-overlay.grid(grid_x_list, grid_y_list)
-overlay.setFont("Helvetica", 5)
+with open("field-info.json", "r") as input_file:
+    overlay.setFont("Helvetica-Bold", 12)
+    item_table = json.load(input_file)
+    #pp(input)
+    box_list = list(find("bounding_box", item_table))
+    pp(box_list)
+    for box in box_list:
+        if None in box.values():
+            continue
+        else:
+            x1 = box["x1"]
+            y1 = box["y1"]
+            x2 = box["x2"]
+            y2 = box["y2"]
+            overlay.grid([x1, x2], [y1, y2])
 
-for y in grid_y_list:
-    overlay.drawString(0, (y-2), str(y))
-    overlay.drawCentredString(545, (y-2), str(y))
+    point_list = list(find("check_point", item_table))
+    pp(point_list)
+    for point in point_list:
+        if None in point.values():
+            continue
+        else:
+            x1 = point["x1"]
+            y1 = point["y1"]
+            overlay.drawCentredString(x1, y1, u'\u2713')
 
-for x in grid_x_list:
-    overlay.drawString((x-3), 0, str(int(x)))
-    overlay.drawString((x-3), 715, str(int(x)))
 
 overlay.save()
 
@@ -68,6 +108,6 @@ original_page.mergePage(overlay_page)
 output_pdf_writer.addPage(original_page)
 
 # write output writer object to actual file
-output_stream = open("dimensioning_output_small.pdf", "wb")
+output_stream = open("bounding_box_checkpoints_output.pdf", "wb")
 output_pdf_writer.write(output_stream)
 output_stream.close()

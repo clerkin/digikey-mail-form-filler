@@ -3,15 +3,15 @@
     "personal_order_checkbox": {
       "value": "X",
       "check_point": {
-        "x1": 30,
-        "y1": 579
+        "x1": 33,
+        "y1": 577
       }
     },
     "company_order_checkbox": {
       "value": "",
       "check_point": {
-        "x1": 87,
-        "y1": 579
+        "x1": 90.5,
+        "y1": 577
       }
     }
   },
@@ -273,15 +273,15 @@
       "acceptable_checkbox": {
         "value": "",
         "check_point": {
-          "x1": 390,
-          "y1": 381
+          "x1": 393,
+          "y1": 380
         }
       },
       "not_acceptable_checkbox": {
         "value": "X",
         "check_point": {
-          "x1": 418,
-          "y1": 381
+          "x1": 419,
+          "y1": 380
         }
       }
     },
@@ -289,15 +289,15 @@
       "acceptable_checkbox": {
         "value": "",
         "check_point": {
-          "x1": 390,
-          "y1": 356
+          "x1": 393,
+          "y1": 354.5
         }
       },
       "not_acceptable_checkbox": {
         "value": "X",
         "check_point": {
-          "x1": 418,
-          "y1": 356
+          "x1": 419,
+          "y1": 354.5
         }
       },
       "backorder_period": {
@@ -323,37 +323,37 @@
       "required_checkbox": {
         "value": "",
         "check_point": {
-          "x1": 390,
-          "y1": 301
+          "x1": 393,
+          "y1": 299.5
         }
       },
       "not_required_checkbox": {
         "value": "",
         "check_point": {
-          "x1": 418,
-          "y1": 301
+          "x1": 419,
+          "y1": 299.5
         }
       },
       "confirm_via": {
         "phone_checkbox": {
           "value": "",
           "check_point": {
-            "x1": 427,
-            "y1": 286
+            "x1": 430,
+            "y1": 284.5
           }
         },
         "fax_checkbox": {
           "value": "",
           "check_point": {
-            "x1": 460,
-            "y1": 286
+            "x1": 462,
+            "y1": 284.5
           }
         },
         "email_checkbox": {
           "value": "",
           "check_point": {
-            "x1": 486,
-            "y1": 286
+            "x1": 488,
+            "y1": 284.5
           }
         }
       }
@@ -363,8 +363,8 @@
     "check_or_mo_checkbox": {
       "value": "X",
       "check_point": {
-        "x1": 303,
-        "y1": 600
+        "x1": 384.5,
+        "y1": 598.5
       }
     }
   }

@@ -2,6 +2,7 @@
 *.pdf
 !order-form.pdf
 !dimensioning_output_small.pdf
+!bounding_box_checkpoints_output.pdf
 
 # Virtual Environment
 venv/
