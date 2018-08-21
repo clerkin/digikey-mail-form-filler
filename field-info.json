@@ -1,0 +1,371 @@
+{
+  "order_type": {
+    "personal_order_checkbox": {
+      "value": "X",
+      "check_point": {
+        "x1": 30,
+        "y1": 579
+      }
+    },
+    "company_order_checkbox": {
+      "value": "",
+      "check_point": {
+        "x1": 87,
+        "y1": 579
+      }
+    }
+  },
+  "ship_to": {
+    "customer_number": {
+      "value": "",
+      "bounding_box": {
+        "x1": 96,
+        "y1": 550,
+        "x2": 224,
+        "y2": 560
+      }
+    },
+    "customer_name": {
+      "value": "",
+      "bounding_box": {
+        "x1": 88,
+        "y1": 537,
+        "x2": 316,
+        "y2": 547
+      }
+    },
+    "company_name": {
+      "value": "",
+      "bounding_box": {
+        "x1": 88,
+        "y1": 524,
+        "x2": 316,
+        "y2": 534
+      }
+    },
+    "shipping_address": {
+      "value": "",
+      "bounding_box": {
+        "x1": 96,
+        "y1": 511,
+        "x2": 316,
+        "y2": 521
+      }
+    },
+    "apt_number": {
+      "value": "",
+      "bounding_box": {
+        "x1": 392,
+        "y1": 511,
+        "x2": 520,
+        "y2": 521
+      }
+    },
+    "state": {
+      "value": "",
+      "bounding_box": {
+        "x1": 354,
+        "y1": 498,
+        "x2": 410,
+        "y2": 508
+      }
+    },
+    "zip_code": {
+      "value": "",
+      "bounding_box": {
+        "x1": 438,
+        "y1": 498,
+        "x2": 520,
+        "y2": 508
+      }
+    },
+    "city": {
+      "value": "",
+      "bounding_box": {
+        "x1": 46,
+        "y1": 498,
+        "x2": 316,
+        "y2": 508
+      }
+    },
+    "phone": {
+      "area_code": {
+        "value": "",
+        "bounding_box": {
+          "x1": 359,
+          "y1": 537,
+          "x2": 372,
+          "y2": 543
+        }
+      },
+      "line_number": {
+        "value": "",
+        "bounding_box": {
+          "x1": 380,
+          "y1": 537,
+          "x2": 520,
+          "y2": 543
+        }
+      }
+    },
+    "email": {
+      "value": "",
+      "bounding_box": {
+        "x1": 352,
+        "y1": 524,
+        "x2": 520,
+        "y2": 534
+      }
+    }
+  },
+  "bill_to": {
+    "PO_number": {
+      "value": "",
+      "bounding_box": {
+        "x1": null,
+        "y1": null,
+        "x2": null,
+        "y2": null
+      }
+    },
+    "account_number": {
+      "value": "",
+      "bounding_box": {
+        "x1": null,
+        "y1": null,
+        "x2": null,
+        "y2": null
+      }
+    },
+    "company_name": {
+      "value": "",
+      "bounding_box": {
+        "x1": null,
+        "y1": null,
+        "x2": null,
+        "y2": null
+      }
+    },
+    "billing_address": {
+      "value": "",
+      "bounding_box": {
+        "x1": null,
+        "y1": null,
+        "x2": null,
+        "y2": null
+      }
+    },
+    "apt_number": {
+      "value": "",
+      "bounding_box": {
+        "x1": null,
+        "y1": null,
+        "x2": null,
+        "y2": null
+      }
+    },
+    "state": {
+      "value": "",
+      "bounding_box": {
+        "x1": null,
+        "y1": null,
+        "x2": null,
+        "y2": null
+      }
+    },
+    "zip_code": {
+      "value": "",
+      "bounding_box": {
+        "x1": null,
+        "y1": null,
+        "x2": null,
+        "y2": null
+      }
+    },
+    "city": {
+      "value": "",
+      "bounding_box": {
+        "x1": null,
+        "y1": null,
+        "x2": null,
+        "y2": null
+      }
+    },
+    "phone": {
+      "area_code": {
+        "value": "",
+        "bounding_box": {
+          "x1": null,
+          "y1": null,
+          "x2": null,
+          "y2": null
+        }
+      },
+      "line_number": {
+        "value": "",
+        "bounding_box": {
+          "x1": null,
+          "y1": null,
+          "x2": null,
+          "y2": null
+        }
+      }
+    },
+    "email": {
+      "value": "",
+      "bounding_box": {
+        "x1": null,
+        "y1": null,
+        "x2": null,
+        "y2": null
+      }
+    }
+  },
+  "cost": {
+    "total_all_items": {
+      "value": "",
+      "bounding_box": {
+        "x1": 482,
+        "y1": 168,
+        "x2": 514,
+        "y2": 178
+      }
+    },
+    "sub_total": {
+      "value": "",
+      "bounding_box": {
+        "x1": 482,
+        "y1": 149,
+        "x2": 514,
+        "y2": 159
+      }
+    },
+    "taxes": {
+      "value": "",
+      "bounding_box": {
+        "x1": 482,
+        "y1": 120,
+        "x2": 514,
+        "y2": 130
+      }
+    },
+    "total_enclosed": {
+      "value": "",
+      "bounding_box": {
+        "x1": 482,
+        "y1": 101,
+        "x2": 514,
+        "y2": 110
+      }
+    }
+  },
+  "shipping_method": {
+    "value": "Ground",
+    "bounding_box": {
+      "x1": 410,
+      "y1": 404,
+      "x2": 516,
+      "y2": 414
+    }
+  },
+  "backorder_and_sub": {
+    "substitutions": {
+      "acceptable_checkbox": {
+        "value": "",
+        "check_point": {
+          "x1": 390,
+          "y1": 381
+        }
+      },
+      "not_acceptable_checkbox": {
+        "value": "X",
+        "check_point": {
+          "x1": 418,
+          "y1": 381
+        }
+      }
+    },
+    "backorders": {
+      "acceptable_checkbox": {
+        "value": "",
+        "check_point": {
+          "x1": 390,
+          "y1": 356
+        }
+      },
+      "not_acceptable_checkbox": {
+        "value": "X",
+        "check_point": {
+          "x1": 418,
+          "y1": 356
+        }
+      },
+      "backorder_period": {
+        "value": "",
+        "bounding_box": {
+          "x1": 469,
+          "y1": 339,
+          "x2": 491,
+          "y2": 349
+        }
+      },
+      "backorder_shipping": {
+        "value": "",
+        "bounding_box": {
+          "x1": 471,
+          "y1": 324,
+          "x2": 514,
+          "y2": 334
+        }
+      }
+    },
+    "confirmation": {
+      "required_checkbox": {
+        "value": "",
+        "check_point": {
+          "x1": 390,
+          "y1": 301
+        }
+      },
+      "not_required_checkbox": {
+        "value": "",
+        "check_point": {
+          "x1": 418,
+          "y1": 301
+        }
+      },
+      "confirm_via": {
+        "phone_checkbox": {
+          "value": "",
+          "check_point": {
+            "x1": 427,
+            "y1": 286
+          }
+        },
+        "fax_checkbox": {
+          "value": "",
+          "check_point": {
+            "x1": 460,
+            "y1": 286
+          }
+        },
+        "email_checkbox": {
+          "value": "",
+          "check_point": {
+            "x1": 486,
+            "y1": 286
+          }
+        }
+      }
+    }
+  },
+  "payment_method": {
+    "check_or_mo_checkbox": {
+      "value": "X",
+      "check_point": {
+        "x1": 303,
+        "y1": 600
+      }
+    }
+  }
+}
