@@ -1,2 +1,17 @@
+# Ignore PDFs (except the order form)
+*.pdf
+!order-form.pdf
+!dimensioning_output_small.pdf
+!bounding_box_checkpoints_output.pdf
+
+# c tags
+.tags*
+
+# linting files
+.pylintrc
+
 # Virtual Environment
 venv/
+
+# Windows Dev Env Files
+pylint.bat
