@@ -4,8 +4,14 @@
 !dimensioning_output_small.pdf
 !bounding_box_checkpoints_output.pdf
 
+# c tags
+.tags*
+
+# linting files
+.pylintrc
+
 # Virtual Environment
 venv/
-s
+
 # Windows Dev Env Files
 pylint.bat
