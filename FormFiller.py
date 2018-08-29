@@ -26,14 +26,55 @@ class FormFiller(object):
     """ Form Filler Class"""
 
     def __init__(self, orig_pdf_name, pagesize=letter):
+        # init stream and canvas
         self.io_buffer = io.BytesIO()
         self.overlay = canvas.Canvas(self.io_buffer, pagesize)
         self.width, self.length = pagesize
+        self.default_font_size = 12
+        self.default_font = "Helvetica"
+
+        #init some defualt canvas parameters
+        self.overlay.setLineWidth(0.125)
 
         self.orig_pdf_name = orig_pdf_name
+        self.fields = {}
+        self.check_marks = {}
 
-        #init some things
-        self.overlay.setLineWidth(0.125)
+    def fill_field(self, field, value, font=None, font_size=None,
+                   justification="Left"):
+        """ Method to fill field with value, stays in bounding box """
+        if font is None:
+            font = self.default_font
+        if font_size is None:
+            font_size = self.default_font_size
+
+        _x1 = float(field['bounding_box']['x1'])
+        _x2 = float(field['bounding_box']['x2'])
+        _y1 = float(field['bounding_box']['y1'])
+        _y2 = float(field['bounding_box']['y2'])
+
+        # field will be a 2 item dict, value and draw_bounding_boxes
+        box_width = _x2 - _x1
+        box_center = (_x2 + _x1) / 2
+        box_height = _y2 - _y1
+
+        # reduce font size height first to fit string within box
+        while font_size > box_height:
+            font_size -= 0.5
+
+        # reduce font size further to fit within length
+        string_width = self.overlay.stringWidth(value, font, font_size)
+        while string_width > box_width:
+            font_size -= 0.5
+            string_width = self.overlay.stringWidth(value, font, font_size)
+
+        self.overlay.setFont(font, font_size)
+
+        if justification == "Center":
+            text_line = ((_y1 + _y2) / 2) - (font_size / 2)
+            self.overlay.drawCentredString(box_center, text_line, value)
+        elif justification == "Left":
+            self.overlay.drawString(_x1, _y1, value)
 
 
     def write_out(self, out_pdf_name):
@@ -114,18 +155,25 @@ class FormFiller(object):
         self.overlay.save()
 
 if __name__ == "__main__":
-    TEST_FORM_GRID = FormFiller("order-form.pdf")
-    TEST_FORM_GRID.draw_grid()
-    TEST_FORM_GRID.write_out("test_grid_out.pdf")
-
+    #TEST_FORM_GRID = FormFiller("order-form.pdf")
+    #TEST_FORM_GRID.draw_grid()
+    #TEST_FORM_GRID.write_out("test_grid_out.pdf")
+    TEST_FORM_BOXES = FormFiller("order-form.pdf")
+    TEST_STRING = "TEST_TEST_TEST_TEST_TEST_TEST"
     import json
     with open("item-table.json", "r") as input_file:
         TABLE_ROW_LIST = json.load(input_file)["table"]
-        TEST_FORM_BOXES = FormFiller("order-form.pdf")
         DICT_LIST = []
         for row in TABLE_ROW_LIST:
             for _key, entry in row.iteritems():
+                TEST_FORM_BOXES.fill_field(entry, TEST_STRING,
+                                           justification="Center")
                 DICT_LIST.append(entry["bounding_box"])
         TEST_FORM_BOXES.draw_bounding_boxes(DICT_LIST)
-        TEST_FORM_BOXES.write_out("test_boxes_out.pdf")
+        TEST_FORM_BOXES.write_out("test_fill_boxes_out.pdf")
+
+    #with open("field-info.json", "r") as in_file:
+    #    FIELD_DICT = json.load(in_file)
+    #    for KEY, VAL in FIELD_DICT.iteritems():
+
         #output should be list of dicts where keys are coordinates
